@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		386F90291FEB5827001DD036 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 386F90281FEB5827001DD036 /* AppDelegate.m */; };
-		386F902C1FEB5827001DD036 /* Ares.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 386F902A1FEB5827001DD036 /* Ares.xcdatamodeld */; };
-		386F902F1FEB5828001DD036 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386F902E1FEB5828001DD036 /* MasterViewController.m */; };
-		386F90321FEB5828001DD036 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386F90311FEB5828001DD036 /* DetailViewController.m */; };
+		38374B541FEB5E2D00023B07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38374B531FEB5E2D00023B07 /* Assets.xcassets */; };
+		386F902F1FEB5828001DD036 /* KDVPrimeTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386F902E1FEB5828001DD036 /* KDVPrimeTVController.m */; };
+		386F90321FEB5828001DD036 /* KDVPrimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386F90311FEB5828001DD036 /* KDVPrimeViewController.m */; };
 		386F90351FEB5828001DD036 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 386F90331FEB5828001DD036 /* Main.storyboard */; };
-		386F90371FEB5828001DD036 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 386F90361FEB5828001DD036 /* Assets.xcassets */; };
 		386F903A1FEB5828001DD036 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 386F90381FEB5828001DD036 /* LaunchScreen.storyboard */; };
 		386F903D1FEB5828001DD036 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 386F903C1FEB5828001DD036 /* main.m */; };
 		386F90471FEB5828001DD036 /* AresTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 386F90461FEB5828001DD036 /* AresTests.m */; };
 		386F90521FEB5828001DD036 /* AresUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 386F90511FEB5828001DD036 /* AresUITests.m */; };
+		388A77FE1FEB5EA600AC53A1 /* Ares.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 388A77FC1FEB5EA600AC53A1 /* Ares.xcdatamodeld */; };
+		38EA1F701FEB5DBC007E9FD6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EA1F6E1FEB5DBB007E9FD6 /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,16 +37,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38374B531FEB5E2D00023B07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		386F90241FEB5827001DD036 /* Ares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ares.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		386F90271FEB5827001DD036 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		386F90281FEB5827001DD036 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		386F902B1FEB5827001DD036 /* Ares.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ares.xcdatamodel; sourceTree = "<group>"; };
-		386F902D1FEB5827001DD036 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		386F902E1FEB5828001DD036 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		386F90301FEB5828001DD036 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		386F90311FEB5828001DD036 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		386F902D1FEB5827001DD036 /* KDVPrimeTVController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KDVPrimeTVController.h; sourceTree = "<group>"; };
+		386F902E1FEB5828001DD036 /* KDVPrimeTVController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KDVPrimeTVController.m; sourceTree = "<group>"; };
+		386F90301FEB5828001DD036 /* KDVPrimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KDVPrimeViewController.h; sourceTree = "<group>"; };
+		386F90311FEB5828001DD036 /* KDVPrimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KDVPrimeViewController.m; sourceTree = "<group>"; };
 		386F90341FEB5828001DD036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		386F90361FEB5828001DD036 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		386F90391FEB5828001DD036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		386F903B1FEB5828001DD036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		386F903C1FEB5828001DD036 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -56,6 +53,9 @@
 		386F904D1FEB5828001DD036 /* AresUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AresUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		386F90511FEB5828001DD036 /* AresUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AresUITests.m; sourceTree = "<group>"; };
 		386F90531FEB5828001DD036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		388A77FD1FEB5EA600AC53A1 /* Ares.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ares.xcdatamodel; sourceTree = "<group>"; };
+		38EA1F6E1FEB5DBB007E9FD6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ApplicationController/AppDelegate.m; sourceTree = "<group>"; };
+		38EA1F6F1FEB5DBC007E9FD6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ApplicationController/AppDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +83,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3832DD561FEB5C5300F69CF5 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				38374B531FEB5E2D00023B07 /* Assets.xcassets */,
+				386F90331FEB5828001DD036 /* Main.storyboard */,
+				386F90381FEB5828001DD036 /* LaunchScreen.storyboard */,
+			);
+			path = GUI;
+			sourceTree = "<group>";
+		};
+		3832DD571FEB5C9F00F69CF5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				386F902D1FEB5827001DD036 /* KDVPrimeTVController.h */,
+				386F902E1FEB5828001DD036 /* KDVPrimeTVController.m */,
+				386F90301FEB5828001DD036 /* KDVPrimeViewController.h */,
+				386F90311FEB5828001DD036 /* KDVPrimeViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3832DD581FEB5CC600F69CF5 /* AppSupport */ = {
+			isa = PBXGroup;
+			children = (
+				3832DD591FEB5D0D00F69CF5 /* AppController */,
+				386F903B1FEB5828001DD036 /* Info.plist */,
+				386F903C1FEB5828001DD036 /* main.m */,
+			);
+			name = AppSupport;
+			sourceTree = "<group>";
+		};
+		3832DD591FEB5D0D00F69CF5 /* AppController */ = {
+			isa = PBXGroup;
+			children = (
+				38EA1F6F1FEB5DBC007E9FD6 /* AppDelegate.h */,
+				38EA1F6E1FEB5DBB007E9FD6 /* AppDelegate.m */,
+			);
+			name = AppController;
+			sourceTree = "<group>";
+		};
 		386F901B1FEB5827001DD036 = {
 			isa = PBXGroup;
 			children = (
@@ -106,18 +146,10 @@
 		386F90261FEB5827001DD036 /* Ares */ = {
 			isa = PBXGroup;
 			children = (
-				386F90271FEB5827001DD036 /* AppDelegate.h */,
-				386F90281FEB5827001DD036 /* AppDelegate.m */,
-				386F902D1FEB5827001DD036 /* MasterViewController.h */,
-				386F902E1FEB5828001DD036 /* MasterViewController.m */,
-				386F90301FEB5828001DD036 /* DetailViewController.h */,
-				386F90311FEB5828001DD036 /* DetailViewController.m */,
-				386F90331FEB5828001DD036 /* Main.storyboard */,
-				386F90361FEB5828001DD036 /* Assets.xcassets */,
-				386F90381FEB5828001DD036 /* LaunchScreen.storyboard */,
-				386F903B1FEB5828001DD036 /* Info.plist */,
-				386F903C1FEB5828001DD036 /* main.m */,
-				386F902A1FEB5827001DD036 /* Ares.xcdatamodeld */,
+				388A77FB1FEB5E8500AC53A1 /* Data */,
+				3832DD581FEB5CC600F69CF5 /* AppSupport */,
+				3832DD571FEB5C9F00F69CF5 /* ViewControllers */,
+				3832DD561FEB5C5300F69CF5 /* GUI */,
 			);
 			path = Ares;
 			sourceTree = "<group>";
@@ -138,6 +170,15 @@
 				386F90531FEB5828001DD036 /* Info.plist */,
 			);
 			path = AresUITests;
+			sourceTree = "<group>";
+		};
+		388A77FB1FEB5E8500AC53A1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				388A77FC1FEB5EA600AC53A1 /* Ares.xcdatamodeld */,
+			);
+			name = Data;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,7 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				386F903A1FEB5828001DD036 /* LaunchScreen.storyboard in Resources */,
-				386F90371FEB5828001DD036 /* Assets.xcassets in Resources */,
+				38374B541FEB5E2D00023B07 /* Assets.xcassets in Resources */,
 				386F90351FEB5828001DD036 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,10 +316,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				386F903D1FEB5828001DD036 /* main.m in Sources */,
-				386F902C1FEB5827001DD036 /* Ares.xcdatamodeld in Sources */,
-				386F902F1FEB5828001DD036 /* MasterViewController.m in Sources */,
-				386F90291FEB5827001DD036 /* AppDelegate.m in Sources */,
-				386F90321FEB5828001DD036 /* DetailViewController.m in Sources */,
+				388A77FE1FEB5EA600AC53A1 /* Ares.xcdatamodeld in Sources */,
+				386F902F1FEB5828001DD036 /* KDVPrimeTVController.m in Sources */,
+				386F90321FEB5828001DD036 /* KDVPrimeViewController.m in Sources */,
+				38EA1F701FEB5DBC007E9FD6 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,13 +606,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		386F902A1FEB5827001DD036 /* Ares.xcdatamodeld */ = {
+		388A77FC1FEB5EA600AC53A1 /* Ares.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				386F902B1FEB5827001DD036 /* Ares.xcdatamodel */,
+				388A77FD1FEB5EA600AC53A1 /* Ares.xcdatamodel */,
 			);
-			currentVersion = 386F902B1FEB5827001DD036 /* Ares.xcdatamodel */;
-			path = Ares.xcdatamodeld;
+			currentVersion = 388A77FD1FEB5EA600AC53A1 /* Ares.xcdatamodel */;
+			name = Ares.xcdatamodeld;
+			path = ../Data/Ares.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

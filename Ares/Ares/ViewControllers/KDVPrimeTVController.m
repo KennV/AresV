@@ -6,14 +6,14 @@
 //  Copyright © 2017 dubian. All rights reserved.
 //
 
-#import "MasterViewController.h"
-#import "DetailViewController.h"
+#import "KDVPrimeTVController.h"
+#import "KDVPrimeViewController.h"
 
-@interface MasterViewController ()
+@interface KDVPrimeTVController ()
 
 @end
 
-@implementation MasterViewController
+@implementation KDVPrimeTVController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -22,7 +22,7 @@
 
   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
   self.navigationItem.rightBarButtonItem = addButton;
-  self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+  self.detailViewController = (KDVPrimeViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 
@@ -62,7 +62,7 @@
   if ([[segue identifier] isEqualToString:@"showDetail"]) {
       NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
       Event *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-      DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+      KDVPrimeViewController *controller = (KDVPrimeViewController *)[[segue destinationViewController] topViewController];
       [controller setDetailItem:object];
       controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
       controller.navigationItem.leftItemsSupplementBackButton = YES;

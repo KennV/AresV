@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Ares+CoreDataModel.h"
 
-@interface DetailViewController : UIViewController
+@interface KDVPrimeViewController : UIViewController
 
 @property (strong, nonatomic) Event *detailItem;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;

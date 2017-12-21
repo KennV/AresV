@@ -6,13 +6,13 @@
 //  Copyright © 2017 dubian. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "KDVPrimeViewController.h"
 
-@interface DetailViewController ()
+@interface KDVPrimeViewController ()
 
 @end
 
-@implementation DetailViewController
+@implementation KDVPrimeViewController
 
 - (void)configureView {
   // Update the user interface for the detail item.

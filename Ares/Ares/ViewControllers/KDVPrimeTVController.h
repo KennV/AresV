@@ -10,11 +10,11 @@
 #import <CoreData/CoreData.h>
 #import "Ares+CoreDataModel.h"
 
-@class DetailViewController;
+@class KDVPrimeViewController;
 
-@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface KDVPrimeTVController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) DetailViewController *detailViewController;
+@property (strong, nonatomic) KDVPrimeViewController *detailViewController;
 
 @property (strong, nonatomic) NSFetchedResultsController<Event *> *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
