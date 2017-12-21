@@ -1,11 +1,13 @@
-//
-//  KDVApplicationDataTests.m
-//  AresTests
-//
-//  Created by Kenn Villegas on 12/21/17.
-//  Copyright © 2017 dubian. All rights reserved.
-//
+/**
+  KDVApplicationDataTests.m
+  AresTests
 
+  Created by Kenn Villegas on 12/21/17.
+  Copyright © 2017 dubian. All rights reserved.
+
+*/
+
+#import "KDVAppDataController.h"
 #import <XCTest/XCTest.h>
 
 @interface KDVApplicationDataTests : XCTestCase
