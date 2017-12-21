@@ -16,6 +16,8 @@
 		386F90471FEB5828001DD036 /* AresTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 386F90461FEB5828001DD036 /* AresTests.m */; };
 		386F90521FEB5828001DD036 /* AresUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 386F90511FEB5828001DD036 /* AresUITests.m */; };
 		388A77FE1FEB5EA600AC53A1 /* Ares.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 388A77FC1FEB5EA600AC53A1 /* Ares.xcdatamodeld */; };
+		38DFACCF1FEC073C00F1F27E /* KDVAbstractDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DFACCE1FEC073C00F1F27E /* KDVAbstractDataTests.m */; };
+		38DFACD11FEC07A300F1F27E /* KDVApplicationDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DFACD01FEC07A300F1F27E /* KDVApplicationDataTests.m */; };
 		38EA1F701FEB5DBC007E9FD6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EA1F6E1FEB5DBB007E9FD6 /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		388A77FD1FEB5EA600AC53A1 /* Ares.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ares.xcdatamodel; sourceTree = "<group>"; };
 		388A78001FEB606500AC53A1 /* KDVAbstractDataController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KDVAbstractDataController.m; sourceTree = "<group>"; };
 		388A78011FEB606500AC53A1 /* KDVAbstractDataController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KDVAbstractDataController.h; sourceTree = "<group>"; };
+		38DFACCE1FEC073C00F1F27E /* KDVAbstractDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KDVAbstractDataTests.m; sourceTree = "<group>"; };
+		38DFACD01FEC07A300F1F27E /* KDVApplicationDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KDVApplicationDataTests.m; sourceTree = "<group>"; };
 		38EA1F6E1FEB5DBB007E9FD6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ApplicationController/AppDelegate.m; sourceTree = "<group>"; };
 		38EA1F6F1FEB5DBC007E9FD6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ApplicationController/AppDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,8 +175,10 @@
 		386F90451FEB5828001DD036 /* AresTests */ = {
 			isa = PBXGroup;
 			children = (
+				38DFACD01FEC07A300F1F27E /* KDVApplicationDataTests.m */,
 				386F90461FEB5828001DD036 /* AresTests.m */,
 				386F90481FEB5828001DD036 /* Info.plist */,
+				38DFACCE1FEC073C00F1F27E /* KDVAbstractDataTests.m */,
 			);
 			path = AresTests;
 			sourceTree = "<group>";
@@ -354,6 +360,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				386F90471FEB5828001DD036 /* AresTests.m in Sources */,
+				38DFACCF1FEC073C00F1F27E /* KDVAbstractDataTests.m in Sources */,
+				38DFACD11FEC07A300F1F27E /* KDVApplicationDataTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
