@@ -37,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		381D6F851FEBFFD800B70372 /* KDVAppDataController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KDVAppDataController.h; sourceTree = "<group>"; };
+		381D6F861FEBFFD800B70372 /* KDVAppDataController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KDVAppDataController.m; sourceTree = "<group>"; };
 		38374B531FEB5E2D00023B07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		386F90241FEB5827001DD036 /* Ares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		386F902D1FEB5827001DD036 /* KDVPrimeTVController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KDVPrimeTVController.h; sourceTree = "<group>"; };
@@ -85,6 +87,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		381D6F841FEBFFD800B70372 /* AppDataLib */ = {
+			isa = PBXGroup;
+			children = (
+				381D6F851FEBFFD800B70372 /* KDVAppDataController.h */,
+				381D6F861FEBFFD800B70372 /* KDVAppDataController.m */,
+			);
+			name = AppDataLib;
+			path = ../../../Pod/AppDataLib;
+			sourceTree = "<group>";
+		};
 		3832DD561FEB5C5300F69CF5 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +189,7 @@
 		388A77FB1FEB5E8500AC53A1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				381D6F841FEBFFD800B70372 /* AppDataLib */,
 				388A77FF1FEB606500AC53A1 /* AbstractDataLib */,
 				388A77FC1FEB5EA600AC53A1 /* Ares.xcdatamodeld */,
 			);

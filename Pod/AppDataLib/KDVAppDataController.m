@@ -6,25 +6,34 @@
   Copyright © 2015 K3nnV. All rights reserved.
 */
 
-#import "KDVAbstractDataController.h"
+#import "KDVAppDataController.h"
 
-@interface KDVAbstractDataController () {
+@interface KDVAppDataController () {
 }
 @end
 
-@implementation KDVAbstractDataController
+@implementation KDVAppDataController
 
-@synthesize MOC = _MOC;
-@synthesize MOM = _MOM;
-@synthesize PSK = _PSK;
+// @synthesize MOC = _MOC;
+// @synthesize MOM = _MOM;
+// @synthesize PSK = _PSK;
 @synthesize miObjects =_miObjects;
 
 -(instancetype)initAllUp {
     if (!(self = [super init])) {
         return nil;
     }
+//    if (!self.psc.description) {
+//        NSLog(@"Could Not Init PSCoordinator");
+//    }
+//    if (!self.moc.description) {
+//        NSLog(@"Could Not Init Context");
+//    }
+//    if (!self.mom.description) {
+//        NSLog(@"Could Not Init Model");
+//    }
     _copyDatabaseIfNotPresent = YES;
-//    NSLog(@"applicationDocumentsDirectory = %@",self.applicationDocumentsDirectory);
+    NSLog(@"applicationDocumentsDirectory = %@",self.applicationDocumentsDirectory);
     return self;
 }
 
@@ -71,7 +80,6 @@
     
     return _PSK;
 }
-
 - (NSManagedObjectContext *)MOC {
     // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
     if (_MOC != nil) {
@@ -86,7 +94,19 @@
     [_MOC setPersistentStoreCoordinator:coordinator];
     return _MOC;
 }
-
+#pragma mark - Core Data Saving support
+- (void)saveContext {
+    NSManagedObjectContext *managedObjectContext = self.MOC;
+    if (managedObjectContext != nil) {
+        NSError *error = nil;
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
 #pragma mark -
 - (void)performAutomaticLightweightMigration {
     
@@ -108,7 +128,8 @@
 }
 
 #pragma mark - Fetched results controller
-
+// This is old code, and I use it on a table but I am not sure it goes here. But it can be cleaner
+// self.entityClassName
 - (NSFetchedResultsController *)fetchCon {
   NSString *defaultKey = (@"incepDate");
     if (_fetchCon != nil) {
@@ -158,6 +179,95 @@
 //    NSLog(@"stack = %lu",(unsigned long)[_miObjects count]); only log this once
     return _miObjects;
 }
+#pragma mark - Control
+- (void)makeNewPerson {
+//    KVPerson *p = [NSEntityDescription insertNewObjectForEntityForName:(@"KVPerson") inManagedObjectContext:self.moc];
+//    KVRootEntityData *d = [NSEntityDescription insertNewObjectForEntityForName:OBJ_DATA inManagedObjectContext:self.moc];
+//    KVRootEntityGraphics *g = [NSEntityDescription insertNewObjectForEntityForName:OBJ_GRAPHICS inManagedObjectContext:self.moc];
+//    KVRootEntityPhysics *physX = [NSEntityDescription insertNewObjectForEntityForName:OBJ_PHYSICS inManagedObjectContext:self.moc];
+//    
+//    [[KVPersonController class]setupPerson:p data:d graphics:g physics:physX randomizedIfYES:YES];
+//    NSError *error = nil;
+//    if (![self.moc save:&error]) {
+//        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//        abort(); }
+}
+- (void)deleteAnObject:(id)thisObjOrNil {
+    ; // That's nifty if I do not pass it a valid obj then I will delete first or last
+}
+#pragma mark - utilities
+// Creates a new entity of the default type and adds it to the managed object context
+- (NSManagedObject *)createEntity
+{
+    return [NSEntityDescription insertNewObjectForEntityForName:self.EntityClassName inManagedObjectContext:[self MOC]];
+}
+// Delete the specified entity
+- (void)deleteEntity:(NSManagedObject *)e  {
+    [self.MOC deleteObject:e];
+}
+// Gets entities for the specified request
+- (NSMutableArray *)getEntities:(NSString *)entityName sortedBy:(NSSortDescriptor *)sortDescriptor matchingPredicate:(NSPredicate *)predicate
+{
+    NSError *error = nil;
+    
+    // Create the request object
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // Set the entity type to be fetched
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:[self MOC]];
+    [request setEntity:entity];
+    
+    // Set the predicate if specified
+    if (predicate) {
+        [request setPredicate:predicate];
+    }
+    
+    // Set the sort descriptor if specified
+    if (sortDescriptor) {
+        NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+        [request setSortDescriptors:sortDescriptors];
+    }
+    
+    // Execute the fetch
+    NSMutableArray *mutableFetchResults = [[_MOC executeFetchRequest:request error:&error] mutableCopy];
+    
+    if (mutableFetchResults == nil) {
+        
+        // Handle the error.
+    }
+    
+    return mutableFetchResults;
+}
+
+// Gets all entities of the default type
+- (NSMutableArray *)getAllEntities
+{
+    return [self getEntities:self.EntityClassName sortedBy:nil matchingPredicate:nil];
+}
+
+// Gets entities of the default type matching the predicate
+- (NSMutableArray *)getEntitiesMatchingPredicate: (NSPredicate *)p
+{
+    return [self getEntities:self.EntityClassName sortedBy:nil matchingPredicate:p];
+}
+
+// Gets entities of the default type matching the predicate string
+- (NSMutableArray *)getEntitiesMatchingPredicateString: (NSString *)predicateString, ...;
+{
+    va_list variadicArguments;
+    va_start(variadicArguments, predicateString);
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString
+                                                    arguments:variadicArguments];
+    va_end(variadicArguments);
+    return [self getEntities:self.EntityClassName sortedBy:nil matchingPredicate:predicate];
+}
+
+// Get entities of the default type sorted by descriptor matching the predicate
+- (NSMutableArray *)getEntitiesSortedBy:(NSSortDescriptor *)sortDescriptor
+                      matchingPredicate:(NSPredicate *)predicate
+{
+    return [self getEntities:self.EntityClassName sortedBy:sortDescriptor matchingPredicate:predicate];
+}
 // Gets entities of the specified type sorted by descriptor, and matching the predicate string
 - (NSMutableArray *)getEntities:(NSString *)entityName
                        sortedBy:(NSSortDescriptor *)sortDescriptor
@@ -170,9 +280,22 @@
     va_end(variadicArguments);
     return [self getEntities:entityName sortedBy:sortDescriptor matchingPredicate:predicate];
 }
-- (void) registerRelatedObject:(KDVAbstractDataController *)controllerObject
+- (void) registerRelatedObject:(KDVAppDataController *)controllerObject
 {
     controllerObject.MOC = self.MOC;
 }
-
+// Saves all changes (insert, update, delete) of entities
+- (void)saveEntities
+{
+    NSError *error = nil;
+    NSManagedObjectContext *managedObjectContext = self.MOC;
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
 @end
