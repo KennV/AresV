@@ -20,12 +20,14 @@
 @synthesize miObjects =_miObjects;
 
 -(instancetype)initAllUp {
-    if (!(self = [super init])) {
-        return nil;
-    }
-    _copyDatabaseIfNotPresent = YES;
-//    NSLog(@"applicationDocumentsDirectory = %@",self.applicationDocumentsDirectory);
-    return self;
+  if (!(self = [super init])) {
+    return nil;
+  }
+  _copyDatabaseIfNotPresent = YES;
+  _DatabaseName = (@"Ares.sqlite");
+  _EntityClassName = (@"NSManagedObject");
+  _ApplicationName = (@"Ares");
+  return self;
 }
 
 #pragma mark - Core Data stack
@@ -34,16 +36,18 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 // SET URL Name for abstraction
+// ApplicationName
 - (NSManagedObjectModel *)MOM {
     // The managed object model for the application. It is a fatal error for the application not to be able to find and load its model.
     if (_MOM != nil) {
         return _MOM;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"DoobDroog" withExtension:@"momd"];
+  NSURL *modelURL = [[NSBundle mainBundle] URLForResource:[self ApplicationName] withExtension:@"momd"];
     _MOM = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _MOM;
 }
 // SET URL Name for abstraction HERE TOO
+// DatabaseName
 - (NSPersistentStoreCoordinator *)PSK {
     // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it.
     if (_PSK != nil) {
@@ -53,7 +57,7 @@
     // Create the coordinator and store
     
     _PSK = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self MOM]];
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"DoobDroog.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:[self DatabaseName]];
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
     if (![_PSK addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
@@ -138,27 +142,32 @@
   //    NSLog(@"stack = %lu",(unsigned long)[_miObjects count]); only log this once
   return _miObjects;
   
-  
-#pragma mark -
-  - (void)performAutomaticLightweightMigration {
-    
-    NSError *error;
-    
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%@", self.DatabaseName, @".sqlite"]];
-    
-    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
-                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
-    
-    if (![_PSK addPersistentStoreWithType:NSSQLiteStoreType
-                            configuration:nil
-                                      URL:storeURL
-                                  options:options
-                                    error:&error]){
-      // Handle the error.
-    }
-  }
-
 }
+#pragma mark -
+- (void) registerRelatedObject:(KDVAbstractDataController *)controllerObject
+{
+  controllerObject.MOC = self.MOC;
+}
+
+- (void)performAutomaticLightweightMigration {
+  
+  NSError *error;
+  
+  NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%@", self.DatabaseName, @".sqlite"]];
+  
+  NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                           [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                           [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+  
+  if (![_PSK addPersistentStoreWithType:NSSQLiteStoreType
+                          configuration:nil
+                                    URL:storeURL
+                                options:options
+                                  error:&error]){
+    // Handle the error.
+  }
+}
+
+
 
 @end

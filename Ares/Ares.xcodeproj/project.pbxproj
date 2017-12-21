@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		38374B541FEB5E2D00023B07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38374B531FEB5E2D00023B07 /* Assets.xcassets */; };
+		384DFA881FEC476000DA73A1 /* Ares.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 388A77FC1FEB5EA600AC53A1 /* Ares.xcdatamodeld */; };
 		386F902F1FEB5828001DD036 /* KDVPrimeTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386F902E1FEB5828001DD036 /* KDVPrimeTVController.m */; };
 		386F90321FEB5828001DD036 /* KDVPrimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 386F90311FEB5828001DD036 /* KDVPrimeViewController.m */; };
 		386F90351FEB5828001DD036 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 386F90331FEB5828001DD036 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 		386F90471FEB5828001DD036 /* AresTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 386F90461FEB5828001DD036 /* AresTests.m */; };
 		386F90521FEB5828001DD036 /* AresUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 386F90511FEB5828001DD036 /* AresUITests.m */; };
 		388A77FE1FEB5EA600AC53A1 /* Ares.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 388A77FC1FEB5EA600AC53A1 /* Ares.xcdatamodeld */; };
+		38962E671FEC4CEB000312B6 /* KDVAbstractDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 388A78001FEB606500AC53A1 /* KDVAbstractDataController.m */; };
 		38DFACCF1FEC073C00F1F27E /* KDVAbstractDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DFACCE1FEC073C00F1F27E /* KDVAbstractDataTests.m */; };
 		38DFACD11FEC07A300F1F27E /* KDVApplicationDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DFACD01FEC07A300F1F27E /* KDVApplicationDataTests.m */; };
 		38EA1F701FEB5DBC007E9FD6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38EA1F6E1FEB5DBB007E9FD6 /* AppDelegate.m */; };
@@ -175,10 +177,10 @@
 		386F90451FEB5828001DD036 /* AresTests */ = {
 			isa = PBXGroup;
 			children = (
-				38DFACD01FEC07A300F1F27E /* KDVApplicationDataTests.m */,
-				386F90461FEB5828001DD036 /* AresTests.m */,
 				386F90481FEB5828001DD036 /* Info.plist */,
+				386F90461FEB5828001DD036 /* AresTests.m */,
 				38DFACCE1FEC073C00F1F27E /* KDVAbstractDataTests.m */,
+				38DFACD01FEC07A300F1F27E /* KDVApplicationDataTests.m */,
 			);
 			path = AresTests;
 			sourceTree = "<group>";
@@ -359,6 +361,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38962E671FEC4CEB000312B6 /* KDVAbstractDataController.m in Sources */,
+				384DFA881FEC476000DA73A1 /* Ares.xcdatamodeld in Sources */,
 				386F90471FEB5828001DD036 /* AresTests.m in Sources */,
 				38DFACCF1FEC073C00F1F27E /* KDVAbstractDataTests.m in Sources */,
 				38DFACD11FEC07A300F1F27E /* KDVApplicationDataTests.m in Sources */,
