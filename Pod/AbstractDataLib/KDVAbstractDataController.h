@@ -19,6 +19,7 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchCon;
 
+@property (nonatomic, copy) NSString* ApplicationName;
 @property (nonatomic, copy) NSString* DatabaseName;
 @property (nonatomic, copy) NSString* EntityClassName;
 @property (nonatomic, assign) BOOL copyDatabaseIfNotPresent;

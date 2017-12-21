@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 01a-ProjectTests
 # Mac OS X
 .DS_Store
 
@@ -42,6 +46,13 @@ Carthage/Build
 *.rad
 *.idea
 *.Pages
+<<<<<<< HEAD
 
 
 *.xcuserstate
+=======
+=======
+
+*.xcuserstate
+>>>>>>> 01-AddProject
+>>>>>>> 01a-ProjectTests

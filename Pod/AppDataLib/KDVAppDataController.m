@@ -37,6 +37,11 @@
     return self;
 }
 
+- (void) registerRelatedObject:(KDVAppDataController *)controllerObject
+{
+  controllerObject.MOC = self.MOC;
+}
+
 #pragma mark - Core Data stack
 - (NSURL *)applicationDocumentsDirectory {
     // The directory the application uses to store the Core Data store file. This code uses a directory named "edu._Company._Application" in the application's documents directory.
@@ -105,25 +110,6 @@
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
-    }
-}
-#pragma mark -
-- (void)performAutomaticLightweightMigration {
-    
-    NSError *error;
-    
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@%@", self.DatabaseName, @".sqlite"]];
-    
-    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
-                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
-    
-    if (![_PSK addPersistentStoreWithType:NSSQLiteStoreType
-                            configuration:nil
-                                      URL:storeURL
-                                  options:options
-                                    error:&error]){
-        // Handle the error.
     }
 }
 
@@ -280,10 +266,7 @@
     va_end(variadicArguments);
     return [self getEntities:entityName sortedBy:sortDescriptor matchingPredicate:predicate];
 }
-- (void) registerRelatedObject:(KDVAppDataController *)controllerObject
-{
-    controllerObject.MOC = self.MOC;
-}
+
 // Saves all changes (insert, update, delete) of entities
 - (void)saveEntities
 {
