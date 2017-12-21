@@ -12,8 +12,11 @@
 @interface KDVAbstractDataController : NSObject <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, retain) NSManagedObjectContext *MOC;
+
 @property (readonly, strong, nonatomic) NSManagedObjectModel *MOM;
+
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *PSK;
+
 @property (strong, nonatomic) NSFetchedResultsController *fetchCon;
 
 @property (nonatomic, copy) NSString* DatabaseName;

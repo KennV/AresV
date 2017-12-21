@@ -8,20 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "KDVAbstractDataController.h"
 
-@interface KDVAppDataController : NSObject <NSFetchedResultsControllerDelegate>
+@interface KDVAppDataController : KDVAbstractDataController <NSFetchedResultsControllerDelegate>
 
-// @property (nonatomic, retain) NSManagedObjectContext *MOC;
-// @property (readonly, strong, nonatomic) NSManagedObjectModel *MOM;
-// @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *PSK;
-// @property (strong, nonatomic) NSFetchedResultsController *fetchCon;
-//
-//@property (nonatomic, copy) NSString* DatabaseName;
-//@property (nonatomic, copy) NSString* EntityClassName;
-//@property (nonatomic, assign) BOOL copyDatabaseIfNotPresent;
-//
 //@property (strong, nonatomic) NSArray *miObjects; //(NSMutableArray *)getAllEntities;
-- (void)saveContext;
+
+
 - (NSURL *)applicationDocumentsDirectory;
 
 -(instancetype)initAllUp;
@@ -46,6 +39,8 @@
 // Get entities of the specified type sorted by descriptor matching the predicate string
 - (NSMutableArray *)getEntities:(NSString *)entityName sortedBy:
 (NSSortDescriptor *)sortDescriptor matchingPredicateString:(NSString *)predicateString, ...;
+
+- (void)saveContext;
 // Saves changes to all entities managed by the object context
 - (void)saveEntities;
 // Register a related business controller object

@@ -87,8 +87,60 @@
     return _MOC;
 }
 
+#pragma mark - Fetched results controller
+
+- (NSFetchedResultsController *)fetchCon {
+  NSString *defaultKey = (@"incepDate");
+  if (_fetchCon != nil) {
+    return _fetchCon;
+  }
+  NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+  // Edit the entity name as appropriate. (Event, RootEntity, ABSTRACT_OBJ)
+  NSEntityDescription *entity = [NSEntityDescription entityForName:self.EntityClassName inManagedObjectContext:self.MOC];
+  
+  [fetchRequest setEntity:entity];
+  // Set the batch size to a suitable number.
+  [fetchRequest setFetchBatchSize:20];
+  // Edit the sort key as appropriate.
+  // GENERALLY @"incepDate"
+  NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:(defaultKey) ascending:NO];
+  NSArray *sortDescriptors = @[sortDescriptor];
+  [fetchRequest setSortDescriptors:sortDescriptors];
+  
+  // Edit the section name key path and cache name if appropriate.
+  // nil for section name key path means "no sections".
+  NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.MOC sectionNameKeyPath:nil cacheName:@"Master"];
+  aFetchedResultsController.delegate = self;
+  self.fetchCon = aFetchedResultsController;
+  
+  NSError *error = nil;
+  
+  if (![self.fetchCon performFetch:&error]) {
+    NSLog(@"It is Fun \nAND Insightful to Know when and Why this happened");
+    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    abort();
+  }
+  return _fetchCon;
+}
+- (NSArray *)miObjects {
+  if (!_miObjects) {
+    _miObjects = [[NSMutableArray alloc]init];
+  }
+  NSEntityDescription *enitiyOne = [[self.fetchCon fetchRequest] entity]; //Hmm??
+  NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:[enitiyOne name]];
+  NSError *error = nil;
+  
+  _miObjects = [[[self fetchCon]managedObjectContext] executeFetchRequest:request error:&error];
+  if (_miObjects.count == 0 ) {
+    NSLog(@"stack = %lu Should I Make an Object?",(unsigned long)[_miObjects count]);
+    NSLog(@"or should the tvController do it?");
+  }
+  //    NSLog(@"stack = %lu",(unsigned long)[_miObjects count]); only log this once
+  return _miObjects;
+  
+  
 #pragma mark -
-- (void)performAutomaticLightweightMigration {
+  - (void)performAutomaticLightweightMigration {
     
     NSError *error;
     
@@ -103,76 +155,10 @@
                                       URL:storeURL
                                   options:options
                                     error:&error]){
-        // Handle the error.
+      // Handle the error.
     }
-}
+  }
 
-#pragma mark - Fetched results controller
-
-- (NSFetchedResultsController *)fetchCon {
-  NSString *defaultKey = (@"incepDate");
-    if (_fetchCon != nil) {
-        return _fetchCon;
-    }
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    // Edit the entity name as appropriate. (Event, RootEntity, ABSTRACT_OBJ)
-    NSEntityDescription *entity = [NSEntityDescription entityForName:self.EntityClassName inManagedObjectContext:self.MOC];
-
-    [fetchRequest setEntity:entity];
-    // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:20];
-    // Edit the sort key as appropriate.
-  // GENERALLY @"incepDate"
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:(defaultKey) ascending:NO];
-    NSArray *sortDescriptors = @[sortDescriptor];
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.MOC sectionNameKeyPath:nil cacheName:@"Master"];
-    aFetchedResultsController.delegate = self;
-    self.fetchCon = aFetchedResultsController;
-    
-    NSError *error = nil;
-    
-    if (![self.fetchCon performFetch:&error]) {
-        NSLog(@"It is Fun \nAND Insightful to Know when and Why this happened");
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    return _fetchCon;
-}
-- (NSArray *)miObjects {
-    if (!_miObjects) {
-        _miObjects = [[NSMutableArray alloc]init];
-    }
-    NSEntityDescription *enitiyOne = [[self.fetchCon fetchRequest] entity]; //Hmm??
-    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:[enitiyOne name]];
-    NSError *error = nil;
-
-    _miObjects = [[[self fetchCon]managedObjectContext] executeFetchRequest:request error:&error];
-    if (_miObjects.count == 0 ) {
-        NSLog(@"stack = %lu Should I Make an Object?",(unsigned long)[_miObjects count]);
-        NSLog(@"or should the tvController do it?");
-    }
-//    NSLog(@"stack = %lu",(unsigned long)[_miObjects count]); only log this once
-    return _miObjects;
-}
-// Gets entities of the specified type sorted by descriptor, and matching the predicate string
-- (NSMutableArray *)getEntities:(NSString *)entityName
-                       sortedBy:(NSSortDescriptor *)sortDescriptor
-        matchingPredicateString:(NSString *)predicateString, ...;
-{
-    va_list variadicArguments;
-    va_start(variadicArguments, predicateString);
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString
-                                                    arguments:variadicArguments];
-    va_end(variadicArguments);
-    return [self getEntities:entityName sortedBy:sortDescriptor matchingPredicate:predicate];
-}
-- (void) registerRelatedObject:(KDVAbstractDataController *)controllerObject
-{
-    controllerObject.MOC = self.MOC;
 }
 
 @end
