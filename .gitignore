@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Mac OS X
 .DS_Store
 
@@ -18,6 +17,7 @@ DerivedData
 *.perspectivev3
 !default.perspectivev3
 xcuserdata
+*.xcuserstate
 
 ## Other
 *.xccheckout
@@ -43,7 +43,9 @@ Carthage/Build
 *.rad
 *.idea
 *.Pages
-=======
 
-*.xcuserstate
->>>>>>> 01-AddProject
+
+
+
+
+
