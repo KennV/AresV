@@ -16,7 +16,7 @@
 
 @property (strong, nonatomic) KDVPrimeViewController *detailViewController;
 
-@property (strong, nonatomic) NSFetchedResultsController<Event *> *fetchedResultsController;
+@property (strong, nonatomic) NSFetchedResultsController<KDVRootEntity *> *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 

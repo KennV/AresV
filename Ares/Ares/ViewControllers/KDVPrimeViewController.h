@@ -11,7 +11,7 @@
 
 @interface KDVPrimeViewController : UIViewController
 
-@property (strong, nonatomic) Event *detailItem;
+@property (strong, nonatomic) KDVRootEntity *detailItem;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 @end

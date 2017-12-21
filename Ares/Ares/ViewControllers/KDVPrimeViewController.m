@@ -37,7 +37,7 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(Event *)newDetailItem {
+- (void)setDetailItem:(KDVRootEntity *)newDetailItem {
   if (_detailItem != newDetailItem) {
       _detailItem = newDetailItem;
       
