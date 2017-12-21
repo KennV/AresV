@@ -1,0 +1,16 @@
+# Where the Rubber Meets the Road #
+the contact patch. OK suppose that i am right and I do not like apple catching half of the fever for a flavor. If we are test-driven then these tests better work. And I mean I was just laughing over a beer about the subversion and non-garbage collected days. But the _funniest_ thing is that this code still works. C and _by extension_ Cocoa will not fail me.
+
+That is my contact patch
+
+But Here is where it gets funny. There is my Abstract and Application DataControllers, and these aren't even in the same kit but they are part of git and under test. I mean I want to get these under test _BUT_ it makes more sense to make a model
+
+And this is why, in the cautious version I projected too long to back-write tests for this and missed the issue of I _Just cant fvkn write to the PSK or MOC!_ but my Naïve Version can, and should shortly be able to initAllUp.
+
+PLEASE _NOTE_; I had to add some API for the AppName and correct the DatabaseName.
+
+So this is kinda a bust for TDC, Hell I can't even test it properly because it is barely a shell and it is not in the .App yet 
+
+So I branch again and come up with a split for the model 
+
+.
