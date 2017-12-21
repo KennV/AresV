@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Mac OS X
 .DS_Store
 
@@ -42,3 +43,7 @@ Carthage/Build
 *.rad
 *.idea
 *.Pages
+=======
+
+*.xcuserstate
+>>>>>>> 01-AddProject
